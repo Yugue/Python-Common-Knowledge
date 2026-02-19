@@ -1,4 +1,5 @@
 from functools import cmp_to_key
+import bisect
 
 def custom_comparator(a, b):
     if a[0] == b[0]:
@@ -99,3 +100,12 @@ if __name__ == '__main__':
     pre_filled = [0]
     print(pre_filled * 10)
 
+
+
+    # Binary search
+    x = [5, 3, 1, 3, 7]
+    x.sort()
+    print(x)
+    print(bisect.bisect_left(x, 3)) # first index ≥ x
+    print(bisect.bisect_right(x, 3)) # first index > x
+    print("count of 3: ", bisect.bisect_right(x, 3) - bisect.bisect_left(x, 3))
